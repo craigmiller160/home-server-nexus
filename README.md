@@ -8,6 +8,9 @@ This is the Helm chart that deploys Sonatype Nexus to the cluster.
 
 ## Environment Variables
 
-UPDATE THE DETAILS HERE
+The following shell environment variables must be present on the machine in order to properly deploy this chart:
 
-`ONEPASSWORD_TOKEN`
+```
+# The operator access token for communicating with 1Password
+ONEPASSWORD_TOKEN=XXXXXXX
+```
