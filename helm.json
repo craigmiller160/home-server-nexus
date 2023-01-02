@@ -1,0 +1,6 @@
+{
+  "name": "@craigmiller160/nexus",
+  "version": "1.0.0",
+  "namespace": "infra-prod",
+  "type": "application"
+}
