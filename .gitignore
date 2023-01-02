@@ -3,3 +3,4 @@
 *.iml
 *.tgz
 deploy/chart/charts
+.terraform
