@@ -45,6 +45,12 @@ spec:
           ports:
             - containerPort: 8081
             - containerPort: 8083
+          livenessProbe:
+            initialDelaySeconds: 30
+            periodSeconds: 300
+            httpGet:
+              port: 8081
+              path: /
           volumeMounts:
             - mountPath: /nexus-data
               name: {{ .Values.deployment.volumeNames.nexusDataVolume }}
