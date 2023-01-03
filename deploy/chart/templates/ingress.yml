@@ -1,0 +1,36 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nexus-ingress
+  annotations:
+    kubernetes.io/ingress.class: public
+    cert-manager.io/cluster-issuer: letsencrypt-nexus
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/proxy-body-size: 1000m
+spec:
+  rules:
+    - host: nexus-craigmiller160.ddns.net
+      http:
+        paths:
+          - path: /(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: nexus
+                port:
+                  number: 8081
+    - host: nexus-docker-craigmiller160.ddns.net
+      http:
+        paths:
+          - path: /(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: nexus
+                port:
+                  number: 8083
+  tls:
+    - secretName: nexus-ingress-secret
+      hosts:
+        - nexus-craigmiller160.ddns.net
+        - nexus-docker-craigmiller160.ddns.net
