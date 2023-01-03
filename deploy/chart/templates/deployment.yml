@@ -1,15 +1,4 @@
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: {{ .Values.pvc.name }}
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: microk8s-hostpath
-  resources:
-    requests:
-      storage: 100Gi
----
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -65,19 +54,3 @@ spec:
         - name: {{ .Values.deployment.volumeNames.nexusDataVolume }}
           persistentVolumeClaim:
             claimName: {{ .Values.pvc.name }}
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: {{ .Values.deployment.name }}
-spec:
-  type: ClusterIP
-  selector:
-    app: {{ .Values.deployment.name }}
-  ports:
-    - name: standard
-      port: 8081
-      targetPort: 8081
-    - name: docker-http
-      port: 8083
-      targetPort: 8083
