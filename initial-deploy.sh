@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if [ $# -ne 1 ]; then
+  echo "Must provide command"
+  exit 1
+fi
+
 helm install \
   nexus \
   ./deploy/chart \
