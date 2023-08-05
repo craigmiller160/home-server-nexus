@@ -5,7 +5,7 @@ if [ $# -ne 1 ]; then
   exit 1
 fi
 
-helm install \
+helm $1 \
   nexus \
   ./deploy/chart \
   --kube-context=microk8s \
