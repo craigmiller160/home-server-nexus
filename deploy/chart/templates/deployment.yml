@@ -50,7 +50,7 @@ spec:
 {{/*          volumeMounts:*/}}
 {{/*            - mountPath: /nexus-data*/}}
 {{/*              name: {{ .Values.deployment.volumeNames.nexusDataVolume }}*/}}
-{{/*      volumes:*/}}
-{{/*        - name: {{ .Values.deployment.volumeNames.nexusDataVolume }}*/}}
-{{/*          persistentVolumeClaim:*/}}
-{{/*            claimName: {{ .Values.pvc.name }}*/}}
+      volumes:
+        - name: {{ .Values.deployment.volumeNames.nexusDataVolume }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.pvc.name }}
