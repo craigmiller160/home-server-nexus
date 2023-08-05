@@ -8,9 +8,3 @@ helm install \
   --timeout 5m \
   --namespace infra-prod \
   --values ./deploy/chart/values.yml
-
-cd deploy/terraform
-terraform init
-terraform apply \
-  -var="onepassword_token=$ONEPASSWORD_TOKEN" \
-  -var="env=prod"
