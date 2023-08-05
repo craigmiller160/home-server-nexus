@@ -47,9 +47,9 @@ spec:
             httpGet:
               port: 8081
               path: /
-{{/*          volumeMounts:*/}}
-{{/*            - mountPath: /nexus-data*/}}
-{{/*              name: {{ .Values.deployment.volumeNames.nexusDataVolume }}*/}}
+          volumeMounts:
+            - mountPath: /nexus-data
+              name: {{ .Values.deployment.volumeNames.nexusDataVolume }}
       volumes:
         - name: {{ .Values.deployment.volumeNames.nexusDataVolume }}
           persistentVolumeClaim:
