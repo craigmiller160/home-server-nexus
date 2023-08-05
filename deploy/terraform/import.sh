@@ -31,5 +31,6 @@ import "nexus_repository_docker_group.docker_group" "docker-group"
 import "nexus_repository_helm_hosted.helm_private" "helm-private"
 
 import "nexus_security_user.craigmiller160" "craigmiller160"
+import "nexus_security_realms.realms" "NexusAuthenticatingRealm,NexusAuthorizingRealm,NpmToken,DockerToken"
 
 plan
