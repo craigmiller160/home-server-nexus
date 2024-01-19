@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: public
   rules:
-    - host: nexus-craigmiller160.ddns.net
+    - host: nexus.craigmiller160.us
       http:
         paths:
           - path: /(.*)
@@ -19,7 +19,7 @@ spec:
                 name: nexus
                 port:
                   number: 8081
-    - host: nexus-docker-craigmiller160.ddns.net
+    - host: nexus-docker.craigmiller160.us
       http:
         paths:
           - path: /(.*)
@@ -32,5 +32,5 @@ spec:
   tls:
     - secretName: nexus-ingress-secret
       hosts:
-        - nexus-craigmiller160.ddns.net
-        - nexus-docker-craigmiller160.ddns.net
+        - nexus.craigmiller160.us
+        - nexus-docker.craigmiller160.us
