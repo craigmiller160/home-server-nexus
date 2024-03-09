@@ -5,5 +5,5 @@ data "onepassword_item" "nexus_admin" {
 
 data "onepassword_item" "nexus_craigmiller" {
   vault = "k6xneqw7nf5f2fm4azxhbdrcji"
-  uuid = "yubzg67fzn7ly5tenmzpnni2au"
+  uuid = "q7cus37bmpgal4nu2u56ncrfum"
 }
