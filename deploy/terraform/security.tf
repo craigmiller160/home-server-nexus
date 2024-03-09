@@ -1,5 +1,5 @@
 resource "nexus_security_user" "craigmiller160" {
-  userid    = data.onepassword_item.nexus_craigmiller.username
+  userid    = data.onepassword_item.nexus_craigmiller.section[0].field[0].value
   firstname = "Craig"
   lastname  = "Miller"
   email     = "craigmiller160@gmail.com"
