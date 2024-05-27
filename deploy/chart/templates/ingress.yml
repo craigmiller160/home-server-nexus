@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: nexus-ingress
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-nexus
+    cert-manager.io/cluster-issuer: craigmiller160-letsencrypt-cluster-issuer
     nginx.ingress.kubernetes.io/rewrite-target: /$1
     nginx.ingress.kubernetes.io/proxy-body-size: 1000m
 spec:
