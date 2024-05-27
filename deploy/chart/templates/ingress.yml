@@ -16,9 +16,9 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: nexus
+                name: nexus-standard
                 port:
-                  number: 8081
+                  number: 80
     - host: nexus-docker.craigmiller160.us
       http:
         paths:
@@ -26,9 +26,9 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: nexus
+                name: nexus-docker
                 port:
-                  number: 8083
+                  number: 80
   tls:
     - secretName: nexus-ingress-secret
       hosts:
