@@ -29,5 +29,5 @@ spec:
     pkcs12:
       create: true
       passwordSecretRef:
-        name: simple-password
+        name: nexus-keystore-password
         key: password
