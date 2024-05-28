@@ -5,7 +5,7 @@ metadata:
 spec:
   isCA: true
   commonName: {{ .Values.deployment.name }}
-  secretName: {{ .Values.deployment.name }}-tls
+  secretName: {{ .Values.deployment.name }}-certificate
   subject:
     organizations:
       - "Craig Miller"
