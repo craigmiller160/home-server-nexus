@@ -22,7 +22,8 @@ spec:
             - /bin/sh
           args:
             - -c
-            - chown -R 200:200 /nexus-data
+            - |
+              chown -R 200:200 /nexus-data
           volumeMounts:
             - mountPath: /nexus-data
               name: {{ .Values.deployment.volumeNames.nexusDataVolume }}
@@ -51,6 +52,12 @@ spec:
               name: {{ .Values.deployment.volumeNames.nexusDataVolume }}
             - mountPath: /tls
               name: tls-volume
+            - mountPath: /opt/sonatype/nexus/etc/nexus.properties
+              name: nexus-properties-volume
+              subPath: nexus.properties
+            - mountPath: /opt/sonatype/nexus/etc/jetty/jetty-https.xml
+              name: nexus-jetty-https-volume
+              subPath: jetty-https.xml
           env:
             - name: KEYSTORE_PASSWORD
               valueFrom:
@@ -64,3 +71,9 @@ spec:
         - name: tls-volume
           secret:
             secretName: nexus-internal-certificate
+        - name: nexus-properties-volume
+          configMap:
+            name: nexus-properties-configmap
+        - name: nexus-jetty-https-volume
+          configMap:
+            name: nexus-jetty-https-configmap
