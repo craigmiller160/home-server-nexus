@@ -22,12 +22,11 @@ spec:
             - /bin/sh
           args:
             - -c
-            - chown -R 200:200 /nexus-data
+            - |
+              chown -R 200:200 /nexus-data
           volumeMounts:
             - mountPath: /nexus-data
               name: {{ .Values.deployment.volumeNames.nexusDataVolume }}
-            - mountPath: /tls
-              name: {{ .Values.deployment.volumeNames.tlsVolume }}
       containers:
         - name: nexus
           image: sonatype/nexus3:3.41.1
@@ -51,6 +50,8 @@ spec:
           volumeMounts:
             - mountPath: /nexus-data
               name: {{ .Values.deployment.volumeNames.nexusDataVolume }}
+            - mountPath: /tls
+              name: {{ .Values.deployment.volumeNames.tlsVolume }}
       volumes:
         - name: {{ .Values.deployment.volumeNames.nexusDataVolume }}
           persistentVolumeClaim:
