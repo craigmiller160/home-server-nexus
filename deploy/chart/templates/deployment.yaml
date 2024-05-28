@@ -26,6 +26,8 @@ spec:
           volumeMounts:
             - mountPath: /nexus-data
               name: {{ .Values.deployment.volumeNames.nexusDataVolume }}
+            - mountPath: /tls
+              name: {{ .Values.deployment.volumeNames.tlsVolume }}
       containers:
         - name: nexus
           image: sonatype/nexus3:3.41.1
@@ -53,3 +55,6 @@ spec:
         - name: {{ .Values.deployment.volumeNames.nexusDataVolume }}
           persistentVolumeClaim:
             claimName: {{ .Values.pvc.name }}
+        - name: {{ .Values.deployment.volumeNames.tlsVolume }}
+          secret:
+            secretName: {{ .Values.certificate.name }}

@@ -1,11 +1,11 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: {{ .Values.deployment.name }}-internal-certificate
+  name: {{ .Values.certificate.name }}
 spec:
   isCA: true
   commonName: {{ .Values.deployment.name }}
-  secretName: {{ .Values.deployment.name }}-internal-certificate
+  secretName: {{ .Values.certificate.name }}
   subject:
     organizations:
       - "Craig Miller"
@@ -29,5 +29,5 @@ spec:
     pkcs12:
       create: true
       passwordSecretRef:
-        name: nexus-keystore-password
+        name: {{ .Values.secrets.keystorePassword }}
         key: password

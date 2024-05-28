@@ -2,5 +2,10 @@ deployment:
   name: nexus
   volumeNames:
     nexusDataVolume: nexus-data-volume
+    tlsVolume: nexus-tls-volume
 pvc:
   name: nexus-data-pvc
+certificate:
+  name: nexus-internal-certificate
+secrets:
+  keystorePassword: nexus-keystore-password
