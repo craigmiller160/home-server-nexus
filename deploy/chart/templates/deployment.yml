@@ -49,7 +49,12 @@ spec:
           volumeMounts:
             - mountPath: /nexus-data
               name: {{ .Values.deployment.volumeNames.nexusDataVolume }}
+            - mountPath: /tls
+              name: tls-volume
       volumes:
         - name: {{ .Values.deployment.volumeNames.nexusDataVolume }}
           persistentVolumeClaim:
             claimName: {{ .Values.pvc.name }}
+        - name: tls-volume
+          secret:
+            secretName: nexus-tls
