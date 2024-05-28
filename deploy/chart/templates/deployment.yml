@@ -35,8 +35,8 @@ spec:
             - containerPort: 8083
           readinessProbe:
             initialDelaySeconds: 30
-            periodSeconds: 30
-            failureThreshold: 10
+            periodSeconds: 10
+            failureThreshold: 20
             httpGet:
               port: 8081
               path: /
