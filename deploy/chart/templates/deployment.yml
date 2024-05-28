@@ -51,6 +51,12 @@ spec:
               name: {{ .Values.deployment.volumeNames.nexusDataVolume }}
             - mountPath: /tls
               name: tls-volume
+          env:
+            - name: KEYSTORE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: nexus-keystore-password
       volumes:
         - name: {{ .Values.deployment.volumeNames.nexusDataVolume }}
           persistentVolumeClaim:
