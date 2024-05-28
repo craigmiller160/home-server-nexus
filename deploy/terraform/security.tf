@@ -8,6 +8,16 @@ resource "nexus_security_user" "craigmiller160" {
   status    = "active"
 }
 
+resource "nexus_security_user" "gitlab_ci" {
+  userid    = data.onepassword_item.nexus_gitlab_ci.username
+  firstname = "GitLab"
+  lastname  = "CI"
+  email     = data.onepassword_item.nexus_gitlab_ci.section[0].field[0].value
+  password  = data.onepassword_item.nexus_gitlab_ci.password
+  roles     = ["nx-admin", "nx-anonymous"]
+  status    = "active"
+}
+
 resource "nexus_security_realms" "realms" {
   active = [
     "NexusAuthenticatingRealm",
