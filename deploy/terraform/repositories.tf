@@ -73,7 +73,8 @@ resource "nexus_repository_docker_hosted" "docker_private" {
   storage {
     blob_store_name                = nexus_blobstore_file.docker_private.name
     strict_content_type_validation = true
-    write_policy                   = "ALLOW_ONCE"
+#     write_policy                   = "ALLOW_ONCE"
+    write_policy = "ALLOW"
   }
 
   docker {
