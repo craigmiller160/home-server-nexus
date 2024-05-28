@@ -41,7 +41,7 @@ spec:
               port: 8081
               path: /
           livenessProbe:
-            initialDelaySeconds: 30
+            initialDelaySeconds: 250
             periodSeconds: 300
             httpGet:
               port: 8081
