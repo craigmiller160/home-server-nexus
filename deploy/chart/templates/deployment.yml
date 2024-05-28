@@ -57,4 +57,4 @@ spec:
             claimName: {{ .Values.pvc.name }}
         - name: tls-volume
           secret:
-            secretName: nexus-tls
+            secretName: nexus-certificate
