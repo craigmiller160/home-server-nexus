@@ -3,6 +3,8 @@ deployment:
   volumeNames:
     nexusDataVolume: nexus-data-volume
     tlsVolume: nexus-tls-volume
+    jettyHttpsVolume: nexus-jetty-https-volume
+    nexusPropsVolume: nexus-properties-volume
 pvc:
   name: nexus-data-pvc
 certificate:

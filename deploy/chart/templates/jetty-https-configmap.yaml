@@ -44,14 +44,14 @@ data:
         </New>
 
         <New id="sslContextFactory" class="org.eclipse.jetty.util.ssl.SslContextFactory$Server">
-            <Set name="KeyStorePath"><Property name="ssl.etc"/>/keystore.jks
-            </Set>
-            <Set name="KeyStorePassword">password
+            <Set name="KeyStorePath">/tls/keystore.p12</Set>
+            <Set name="KeyStoreType">PKCS12</Set>
+            <Set name="KeyStorePassword">
+                <Env name="KEYSTORE_PASSWORD" />
             </Set>
             <Set name="KeyManagerPassword">password</Set>
-            <Set name="TrustStorePath"><Property name="ssl.etc"/>/keystore.jks
-            </Set>
-            <Set name="TrustStorePassword">password</Set>
+    <!--        <Set name="TrustStorePath"><Property name="ssl.etc"/>/keystore.jks</Set>-->
+    <!--        <Set name="TrustStorePassword">password</Set>-->
             <Set name="EndpointIdentificationAlgorithm"></Set>
             <Set name="NeedClientAuth">
                 <Property name="jetty.ssl.needClientAuth" default="false"/>
