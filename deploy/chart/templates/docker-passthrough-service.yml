@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: docker-nginx-passthrough
+  namespace: infra-prod
+spec:
+  type: ClusterIP
+  selector:
+    app: docker-nginx-passthrough
+  ports:
+    - port: 443
+      targetPort: 443
+      protocol: TCP
