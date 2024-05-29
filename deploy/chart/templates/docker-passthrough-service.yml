@@ -5,7 +5,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: docker-nginx-passthrough
+    app: {{ .Values.docker_passthrough.name }}
   ports:
     - port: 443
       targetPort: 443
