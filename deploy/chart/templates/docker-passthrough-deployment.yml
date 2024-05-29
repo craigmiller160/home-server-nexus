@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-passthrough
+  namespace: infra-prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-passthrough
+  template:
+    metadata:
+      labels:
+        app: nginx-passthrough
+    spec:
+      containers:
+        - name: nginx-passthrough
+          image: nginx:1.19.6
+          ports:
+            - containerPort: 443
+          volumeMounts:
+            - mountPath: /var/www/cert
+              name: tls
+      volumes:
+        - name: tls
+          secret:
+            secretName: nginx-passthrough-cert
