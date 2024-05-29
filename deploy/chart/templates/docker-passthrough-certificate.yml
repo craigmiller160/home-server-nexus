@@ -14,7 +14,7 @@ spec:
     countries:
       - US
   dnsNames:
-    - docker-nginx-passthrough.infra-prod
+    - nexus-docker-passthrough.infra-prod
   privateKey:
     algorithm: ECDSA
     size: 256
