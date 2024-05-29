@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: docker-passthrough-nginx-configmap
+  name: {{ .Values.docker_passthrough.nginxConfigmap }}
 data:
   nginx.conf: |
     worker_processes auto;

@@ -4,3 +4,7 @@ deployment:
     nexusDataVolume: nexus-data-volume
 pvc:
   name: nexus-data-pvc
+docker_passthrough:
+  name: nexus-docker-passthrough
+  cert: nexus-docker-passthrough-cert
+  nginxConfigmap: nexus-docker-passthrough-nginx-configmap

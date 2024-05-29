@@ -1,17 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: docker-nginx-passthrough
-  namespace: infra-prod
+  name: {{ .Values.docker_passthrough.name }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: docker-nginx-passthrough
+      app: {{ .Values.docker_passthrough.name }}
   template:
     metadata:
       labels:
-        app: docker-nginx-passthrough
+        app: {{ .Values.docker_passthrough.name }}
     spec:
       containers:
         - name: docker-nginx-passthrough
@@ -24,7 +23,7 @@ spec:
       volumes:
         - name: tls
           secret:
-            secretName: docker-nginx-passthrough-cert
+            secretName: {{ .Values.docker_passthrough.cert }}
         - name: nginx
           configMap:
-            name: docker-passthrough-nginx-configmap
+            name: {{ .Values.docker_passthrough.nginxConfigmap }}
