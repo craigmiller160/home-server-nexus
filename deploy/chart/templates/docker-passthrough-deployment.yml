@@ -25,3 +25,6 @@ spec:
         - name: tls
           secret:
             secretName: docker-nginx-passthrough-cert
+        - name: nginx
+          configMap:
+            name: docker-passthrough-nginx-configmap
