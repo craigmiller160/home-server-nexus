@@ -20,6 +20,9 @@ spec:
           volumeMounts:
             - mountPath: /var/www/cert
               name: tls
+            - mountPath: /etc/nginx/nginx.conf
+              name: nginx
+              subPath: nginx.conf
       volumes:
         - name: tls
           secret:
