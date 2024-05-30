@@ -31,3 +31,7 @@ Create a policy for each of the following types:
 - NPM
 - Docker
 - Helm
+
+### Clean Blob Stores
+
+Under System -> Tasks, create a Admin - Compact Blob Store task for each blob store there is. Nothing actually gets deleted without running that task, the cleanup policies just soft-delete.
